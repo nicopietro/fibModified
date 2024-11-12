@@ -27,7 +27,7 @@ def fibonacci_recursive(n:int)->int:
     if n < 2:
         return n
 
-    return fibonacci_recursive(n-1) + fibonacci_recursive()
+    return fibonacci_recursive(n-1) + fibonacci_recursive(n-2)
 
 @cache
 def fibonacci_recursive2(n:int)->int:
