@@ -8,9 +8,9 @@ def test_fib_negative_raise_error():
     with pytest.raises(ValueError):
         fibonacci_iterative(-1)
 
-def test_fibreq_9_is_34():
+def test_fib_req_9_is_34():
     assert fibonacci_recursive2(9) == 34
 
-def test_fibreq_negative_raise_error():
+def test_fib_req_negative_raise_error():
     with pytest.raises(ValueError):
         fibonacci_recursive2(-1)
