@@ -1,5 +1,7 @@
 import argparse
 import sys
+from functools import cache
+
 
 def fibonacci_iterative(n:int)->int:
     if n < 0:
@@ -28,18 +30,13 @@ def fibonacci_recursive(n:int)->int:
 
     return fibonacci_recursive(n-1) + fibonacci_recursive()
 
-cache = {}
+@cache
 def fibonacci_recursive2(n:int)->int:
     if n < 0:
         raise ValueError("n must be greater than or equal to zero.")
     if n < 2:
         return n
-
-    if n in cache:
-        return cache[n]
-    nth = fibonacci_recursive(n-1) + fibonacci_recursive(n-2)
-    cache[n] = nth
-
+    nth = fibonacci_recursive2(n-1) + fibonacci_recursive2(n-2)
     return nth
 
 if __name__ == "__main__":
@@ -49,5 +46,3 @@ if __name__ == "__main__":
 
     result = fibonacci_iterative(args.nth)
     print(result)
-
-
